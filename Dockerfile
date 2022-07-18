@@ -6,5 +6,7 @@ RUN unzip Microsoft365_E5_Renew_X.zip
 ENV LANG=zh_CN.UTF-8
 ENV TZ=Asia/Shanghai
 EXPOSE 1066
+RUN rm Microsoft365_E5_Renew_X.zip
+RUN apk del unzip wget
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["dotnet", "Microsoft365_E5_Renew_X.dll"]
